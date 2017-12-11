@@ -1,0 +1,30 @@
+{
+  "name": "generator-karma-webpack",
+  "version": "1.0.0",
+  "description": "Creates build system",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ranajitbanerjee/generator-karma-webpack.git"
+  },
+  "keywords": [
+    "yeoman-generator",
+    "generator-karma"
+  ],
+  "author": "Ranajit banerjee",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/ranajitbanerjee/generator-karma-webpack/issues"
+  },
+  "homepage": "https://github.com/ranajitbanerjee/generator-karma-webpack#readme",
+  "dependencies": {
+    "chalk": "^2.3.0",
+    "lodash": "^4.17.4",
+    "underscore": "^1.8.3",
+    "yeoman-generator": "^2.0.1",
+    "yosay": "^2.0.1"
+  }
+}
