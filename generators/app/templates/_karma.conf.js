@@ -8,7 +8,7 @@ module.exports = function (config) {
         webpack: {
             module: {
                 rules: [
-                // instrument only testing sources with Istanbul
+                    // instrument only testing sources with Istanbul
                     {
                         test: /\.js$/,
                         use: {
@@ -23,16 +23,15 @@ module.exports = function (config) {
                         test: /\.js$|\.jsx$/,
                         use: {
                             loader: 'istanbul-instrumenter-loader',
-                            options: { esModules: true },
+                            options: { esModules: true }
                         },
                         enforce: 'pre',
-                        exclude: /node_modules/,
-                    },
+                        exclude: /node_modules|\.spec\.js$/,
+                    }
                 ],
             },
         },
         preprocessors: {
-            // add webpack as preprocessor
             'test.webpack.js': ['webpack'],
         },
         exclude: [
@@ -42,41 +41,49 @@ module.exports = function (config) {
         coverageIstanbulReporter: {
             dir: 'coverage/',
             thresholds: {
-                emitWarning: false, // set to `true` to not fail the test command when thresholds are not met
-                global: { // thresholds for all files
+                emitWarning: false,
+                global: {
                     statements: 80,
                     lines: 80,
                     branches: 80,
-                    functions: 80,
+                    functions: 80
                 },
-                each: { // thresholds per file
+                each: {
                     statements: 80,
                     lines: 80,
                     branches: 80,
                     functions: 80,
                     overrides: {
                         'baz/component/**/*.js': {
-                            statements: 80,
-                        },
-                    },
-                },
+                            statements: 80
+                        }
+                    }
+                }
             },
-            reports: ['html', 'lcov', 'text-summary'],
+            reports: ['text-summary', 'html', 'lcov'],
             fixWebpackSourcePaths: true,
             reporters: [
-        { type: 'text' },
-        { type: 'html', subdir: 'report-html', file: 'report.html' },
-        { type: 'lcov', subdir: 'report-lcov', file: 'report.txt' },
+                { type: 'text' },
+                { type: 'html', subdir: 'report-html', file: 'report.html' },
+                { type: 'lcov', subdir: 'report-lcov', file: 'report.txt' },
             ],
         },
 
-    reporters: ['progress', 'coverage-istanbul'],
-    port: 9876,
-    colors: true,
-    logLevel: config.LOG_INFO,
-    autoWatch: false,
-    browsers: ['ChromeHeadless'],
-    singleRun: true,
-    concurrency: Infinity,
-  });
+        reporters: ['spec', 'coverage-istanbul'],
+        specReporter: {
+            maxLogLines: 5, // limit number of lines logged per test
+            suppressErrorSummary: true, // do not print error summary
+            suppressFailed: false, // do not print information about failed tests
+            suppressPassed: false, // do not print information about passed tests
+            suppressSkipped: true, // do not print information about skipped tests
+            showSpecTiming: false, // print the time elapsed for each spec
+        },
+        port: 9876,
+        colors: true,
+        logLevel: config.LOG_INFO,
+        autoWatch: false,
+        browsers: ['ChromeHeadless'],
+        singleRun: true,
+        concurrency: Infinity
+    });
 };

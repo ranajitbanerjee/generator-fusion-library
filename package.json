@@ -1,5 +1,5 @@
 {
-  "name": "generator-karma-webpack",
+  "name": "generator-fusion-library",
   "version": "1.0.0",
   "description": "Creates build system",
   "main": "index.js",
@@ -8,7 +8,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/ranajitbanerjee/generator-karma-webpack.git"
+    "url": "git+https://github.com/ranajitbanerjee/generator-fusion-library.git"
   },
   "keywords": [
     "yeoman-generator",
@@ -17,9 +17,9 @@
   "author": "Ranajit banerjee",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/ranajitbanerjee/generator-karma-webpack/issues"
+    "url": "https://github.com/ranajitbanerjee/generator-fusion-library/issues"
   },
-  "homepage": "https://github.com/ranajitbanerjee/generator-karma-webpack#readme",
+  "homepage": "https://github.com/ranajitbanerjee/generator-fusion-library#readme",
   "dependencies": {
     "chalk": "^2.3.0",
     "lodash": "^4.17.4",
