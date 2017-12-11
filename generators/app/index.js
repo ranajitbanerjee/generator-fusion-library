@@ -7,7 +7,7 @@ module.exports = class extends Generator {
   prompting() {
     // Have Yeoman greet the user.
     this.log(yosay(
-      'Welcome to the cool ' + chalk.red('generator-karma-webpack') + ' generator!'
+      'Welcome to the cool ' + chalk.red('generator-fusion-library') + ' generator!'
     ));
 
     const prompts = [{
@@ -112,6 +112,10 @@ module.exports = class extends Generator {
     this.fs.copy(
       this.templatePath('src/_sum.js'),
       this.destinationPath('src/sum.js')
+    );
+    this.fs.copy(
+      this.templatePath('src/_sum.spec.js'),
+      this.destinationPath('src/sum.spec.js')
     );
     this.fs.copy(
       this.templatePath('_index.js'),
